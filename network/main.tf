@@ -49,8 +49,8 @@ resource "google_compute_instance" "myvmw" {
     }
   }
   network_interface {
-    network = "mypvc"
-    subnetwork = "subne1"
+    network = google_compute_network.myvpc.id
+    subnetwork = google_compute_subnetwork.subne1.id
   }
 
   
