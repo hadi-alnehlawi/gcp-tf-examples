@@ -40,7 +40,7 @@ resource "google_compute_firewall" "name" {
 
 resource "google_compute_instance" "myvmw" {
   machine_type = var.gce_machine_type
-  zone = var.gcp_region
+  zone = var.gcp_zone
   name = "myvmw"
   boot_disk {
     initialize_params {
