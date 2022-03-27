@@ -53,5 +53,5 @@ resource "google_compute_instance" "myvmw" {
     subnetwork = google_compute_subnetwork.subne1.id
   }
 
-  
+
 }
