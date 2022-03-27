@@ -18,3 +18,9 @@ variable "subnet1" {
 
 variable "myip" {
 }
+
+variable "gce_machine_type" {
+}
+
+variable "gcp_region" {
+}

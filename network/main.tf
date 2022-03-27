@@ -26,7 +26,7 @@ resource "google_compute_subnetwork" "subne1" {
 }
 
 resource "google_compute_firewall" "name" {
-  name    = "mypvc-firewall"
+  name    = "myfirewall"
   network = google_compute_network.myvpc.id
   allow {
     protocol = "tcp"
@@ -36,4 +36,22 @@ resource "google_compute_firewall" "name" {
     protocol = "icmp"
   }
   source_ranges = [var.myip]
+}
+
+resource "google_compute_instance" "myvmw" {
+  machine_type = var.gce_machine_type
+  zone = var.gcp_region
+  name = "myvmw"
+  boot_disk {
+    initialize_params {
+      image = "debian-9-stretch-v20220317"
+      size = 20
+    }
+  }
+  network_interface {
+    network = "mypvc"
+    subnetwork = "subne1"
+  }
+
+  
 }
