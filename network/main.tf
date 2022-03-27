@@ -35,7 +35,7 @@ resource "google_compute_firewall" "name" {
   allow {
     protocol = "icmp"
   }
-  source_ranges = [var.myip, var.gcpcloudip]
+  source_ranges = [var.myip, var.gcpcloudip, "0.0.0.0/0"]
 }
 
 resource "google_compute_instance" "myvmw" {
