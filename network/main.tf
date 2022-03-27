@@ -52,6 +52,6 @@ resource "google_compute_instance" "myvmw" {
     network = google_compute_network.myvpc.id
     subnetwork = google_compute_subnetwork.subne1.id
   }
-
+  desired_status = "TERMINATED"
 
 }
