@@ -21,9 +21,9 @@ variable "subnet1" {
 
 variable "myip" {
 }
+
 variable "gcpcloudip" {
 }
-
 
 variable "gce_machine_type" {
 }
