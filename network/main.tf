@@ -20,8 +20,20 @@ resource "google_compute_network" "myvpc" {
 }
 
 resource "google_compute_subnetwork" "subne1" {
-  ip_cidr_range = "value"
-  name          = "value"
-  network       = "value"
+  ip_cidr_range = var.ip_cidr_range
+  name          = var.subnet1
+  network       = google_compute_network.myvpc.id
+}
 
+resource "google_compute_firewall" "name" {
+  name    = "mypvc-firewall"
+  network = google_compute_network.myvpc.id
+  allow {
+    protocol = "tcp"
+    ports    = ["22"]
+  }
+  allow {
+    protocol = "icmp"
+  }
+  source_ranges = [var.myip]
 }

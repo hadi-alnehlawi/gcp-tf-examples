@@ -10,5 +10,11 @@ variable "vpc_name" {
 variable "ip_cidr_range" {
 }
 
-variable "credentials_file" {
+variable "cred_file" {
+}
+
+variable "subnet1" {
+}
+
+variable "myip" {
 }
